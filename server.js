@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; // для heroku
+
 var app = express(); //создает новое express-приложение
 
 hbs.registerPartials(__dirname + '/views/partials'); // Подключение Partials
@@ -52,6 +54,6 @@ app.get('/about', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is up on port 3000");
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
